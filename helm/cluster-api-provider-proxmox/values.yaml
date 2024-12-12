@@ -1,0 +1,14 @@
+image:
+  name: gsoci.azurecr.io/giantswarm/cluster-api-proxmox-controller
+  tag: v0.6.1
+
+project:
+  branch: ""
+  commit: ""
+
+crdInstall:
+  enable: true
+  kubectl:
+    image: "giantswarm/kubectl"
+    registry: gsoci.azurecr.io
+    tag: 1.25.10

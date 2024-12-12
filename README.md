@@ -1,70 +1,33 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/{APP-NAME}/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/{APP-NAME}/tree/main)
+[![CircleCI](https://circleci.com/gh/giantswarm/cluster-api-provider-proxmox-app.svg?style=shield)](https://circleci.com/gh/giantswarm/cluster-api-provider-proxmox-app)
 
-[Read me after cloning this template (GS staff only)](https://handbook.giantswarm.io/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog/)
+# cluster-api-provider-proxmox-app
 
-# {APP-NAME} chart
+Cluster API Provider proxmox - packaged as a Giant Swarm app.
 
-Giant Swarm offers a {APP-NAME} App which can be installed in workload clusters.
-Here we define the {APP-NAME} chart with its templates and default configuration.
+This repository is primary used to import the upstream Cluster API Provider proxmox manifests into Giant Swarm's own app catalog.
 
-**What is this app?**
+Content of the `/helm` directory will be bundled, released and pushed to the `app-catalog` via [`architect`](https://github.com/giantswarm/architect). This happens automatically and is done by [this](.circleci/config.yml) `circleCI` configuration.
 
-**Why did we add it?**
+> To keep it quite easy to update the manifest from upstream, we don't change the fetched manifests directly. All Giant Swarm specific adjustments get applied via `kustomize`.
 
-**Who can use it?**
+## Usage
 
-## Installing
+How to work within this repository?
 
-There are several ways to install this app onto a workload cluster.
+### apply new `kustomize` changes to the charts
 
-- [Using GitOps to instantiate the App](https://docs.giantswarm.io/advanced/gitops/apps/)
-- [Using our web interface](https://docs.giantswarm.io/platform-overview/web-interface/app-platform/#installing-an-app).
-- By creating an [App resource](https://docs.giantswarm.io/use-the-api/management-api/crd/apps.application.giantswarm.io/) in the management cluster as explained in [Getting started with App Platform](https://docs.giantswarm.io/getting-started/app-platform/).
+1. if not already done, run `make fetch-upstream-manifest` (only has to be done once)
+   > upstream manifest will be stored in [`config/kustomize/origin`](config/kustomize/origin)
+1. write your desired changes as kustomize patches in [config/kustomize]
+1. run `make apply-kustomize-patches` to apply the changes\n
+   > this will generate a patched version under [`config/kustomize/tmp`](config/kustomize/tmp)
+1. once you're done, run `make release-manifests` to move all relevant files into the [`helm/cluster-api-provider-proxmox`](helm/cluster-api-provider-proxmox) folder
 
-## Configuring
+### update to a newer CAPMOX release
 
-### values.yaml
+1. edit the value of `COMMIT_TO_SYNC` in [the Makefile](Makefile.custom.mk) to the desired commit to pin in the source repo.
+2. run `make all`
 
-**This is an example of a values file you could upload using our web interface.**
+# Useful links
 
-```yaml
-# values.yaml
-
-```
-
-### Sample App CR and ConfigMap for the management cluster
-
-If you have access to the Kubernetes API on the management cluster, you could create
-the App CR and ConfigMap directly.
-
-Here is an example that would install the app to
-workload cluster `abc12`:
-
-```yaml
-# appCR.yaml
-
-```
-
-```yaml
-# user-values-configmap.yaml
-
-```
-
-See our [full reference on how to configure apps](https://docs.giantswarm.io/getting-started/app-platform/app-configuration/) for more details.
-
-## Compatibility
-
-This app has been tested to work with the following workload cluster release versions:
-
-- _add release version_
-
-## Limitations
-
-Some apps have restrictions on how they can be deployed.
-Not following these limitations will most likely result in a broken deployment.
-
-- _add limitation_
-
-## Credit
-
-- {APP HELM REPOSITORY}
+* [proxmox doc](https://github.com/ionos-cloud/cluster-api-provider-proxmox/tree/main/docs)
