@@ -14,7 +14,7 @@ pushd "${TMPDIR}"
 
 git clone --depth=1 --branch "${TAG}" "https://github.com/${UPSTREAM_ORG}/${REPO_NAME}.git"
 pushd "${REPO_NAME}"
-make release-manifests-all
+make release-manifests
 
 # remove cluster-api-provider-proxmox from the stack
 popd

@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capmox-controller-manager
+  namespace: capmox-system
+spec:
+  template:
+    spec:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
+          effect: "NoSchedule"
+      priorityClassName: "{{ .Values.priorityClass }}"
+      serviceAccountName: capmox-controller-manager
+      containers:
+        - name: manager
+          image: "{{.Values.image.name}}:{{.Values.image.tag}}"
+          args:
+          - --leader-elect
+          - --feature-gates=ClusterTopology={{ .Values.featureGates.ClusterTopology }}
+          - --metrics-bind-address=localhost:8080
+          - --v=6
+          resources:
+            limits:
+              cpu: "{{ .Values.resources.limits.cpu }}"
+              memory: "{{ .Values.resources.limits.memory }}"
+            requests:
+              cpu: "{{ .Values.resources.requests.cpu }}"
+              memory: "{{ .Values.resources.requests.memory }}"
+      volumes:
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: webhook-server-cert
