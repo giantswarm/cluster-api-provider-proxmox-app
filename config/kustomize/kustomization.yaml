@@ -4,7 +4,6 @@ namespace: '{{ .Release.Namespace }}'
 
 resources:
   - input/infrastructure-components.yaml
-  - patches/sa.yaml
   - extras/ciliumnetworkpolicy-capmox-controller-manager.yaml
   - extras/networkpolicy-capmox-controller-manager.yaml
 
@@ -14,7 +13,6 @@ transformers:
 
 patchesStrategicMerge:
   - patches/delete-namespace.yaml
-  - patches/delete-credentials-secret.yaml
   - patches/certificate.yaml
   - patches/webhook-certificate.yaml
   - patches/delete-issuer.yaml

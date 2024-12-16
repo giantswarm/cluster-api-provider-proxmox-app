@@ -3,7 +3,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: capmox-manager-rolebinding
-  namespace: capmox-system
 subjects:
 - kind: ServiceAccount
   name: capmox-controller-manager

@@ -15,7 +15,6 @@ spec:
           operator: "Exists"
           effect: "NoSchedule"
       priorityClassName: "{{ .Values.priorityClass }}"
-      serviceAccountName: capmox-controller-manager
       containers:
         - name: manager
           image: "{{.Values.image.name}}:{{.Values.image.tag}}"
@@ -31,8 +30,4 @@ spec:
             requests:
               cpu: "{{ .Values.resources.requests.cpu }}"
               memory: "{{ .Values.resources.requests.memory }}"
-      volumes:
-      - name: cert
-        secret:
-          defaultMode: 420
-          secretName: webhook-server-cert
+
