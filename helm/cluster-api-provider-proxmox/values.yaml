@@ -1,5 +1,5 @@
 image:
-  name: gsoci.azurecr.io/giantswarm/cluster-api-proxmox-controller
+  name: gsoci.azurecr.io/giantswarm/cluster-api-provider-proxmox
   tag: v0.6.1
 
 project:
