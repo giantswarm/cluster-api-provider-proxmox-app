@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: capmox-serving-cert
+  namespace: capmox-system
+spec:
+  dnsNames:
+    - capmox-webhook-service.{{ .Release.Namespace }}.svc
+    - capmox-webhook-service.{{ .Release.Namespace }}.svc.cluster.local
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: selfsigned-giantswarm
+  secretName: webhook-server-cert

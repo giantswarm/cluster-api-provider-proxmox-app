@@ -1,5 +1,5 @@
 image:
-  name: gsoci.azurecr.io/giantswarm/cluster-api-proxmox-controller
+  name: gsoci.azurecr.io/giantswarm/cluster-api-provider-proxmox
   tag: v0.6.1
 
 project:
@@ -12,3 +12,46 @@ crdInstall:
     image: "giantswarm/kubectl"
     registry: gsoci.azurecr.io
     tag: 1.25.10
+
+ciliumNetworkPolicy:
+  enabled: false
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2048Mi
+  requests:
+    cpu: 200m
+    memory: 512Mi
+
+priorityClass: ""
+
+serviceMonitor:
+  enabled: true
+  # -- (duration) Prometheus scrape interval.
+  interval: "60s"
+  # -- (duration) Prometheus scrape timeout.
+  scrapeTimeout: "45s"
+
+# Add seccomp to pod security context
+podSecurityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+# Add seccomp to container security context
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+global:
+  podSecurityStandards:
+    enforced: false
+
+featureGates:
+  ClusterTopology: false

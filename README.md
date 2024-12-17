@@ -2,7 +2,7 @@
 
 # cluster-api-provider-proxmox-app
 
-Cluster API Provider proxmox - packaged as a Giant Swarm app.
+[Cluster API Provider proxmox}(https://github.com/ionos-cloud/cluster-api-provider-proxmox) - packaged as a Giant Swarm app.
 
 This repository is primary used to import the upstream Cluster API Provider proxmox manifests into Giant Swarm's own app catalog.
 
