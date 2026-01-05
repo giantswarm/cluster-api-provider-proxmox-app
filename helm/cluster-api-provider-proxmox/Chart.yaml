@@ -1,14 +1,15 @@
 apiVersion: v2
-version: [[ .Version ]]
-appVersion: "v0.0.0"
 name: cluster-api-provider-proxmox
+version: 0.0.1-dev
+appVersion: "v0.0.0"
 description: A Helm chart for cluster api provider proxmox
-engine: gotpl
 home: https://github.com/giantswarm/cluster-api-provider-proxmox-app
+icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
 sources:
   - https://github.com/giantswarm/cluster-api-provider-proxmox-app
 annotations:
   application.giantswarm.io/team: "rocket"
+  io.giantswarm.application.team: "rocket"
 maintainers:
   - name: Team Rocket
     email: team-rocket@giantswarm.io
