@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-03-03
+
 ## [0.1.0] - 2026-03-03
 
 ### Changed
@@ -15,5 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Label group `app.giantswarm.io` was changed to `application.giantswarm.io`.
 - Change `kubectl` image to `docker-kubectl`.
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/releases/tag/v0.1.0
