@@ -30,29 +30,15 @@ rules:
   verbs:
   - get
   - list
+  - patch
   - watch
 - apiGroups:
   - cluster.x-k8s.io
   resources:
   - clusters
   - clusters/status
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - cluster.x-k8s.io
-  resources:
   - machines
   - machines/status
-  verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - ""
-  resources:
-  - secrets
   verbs:
   - get
   - list
@@ -62,31 +48,6 @@ rules:
   - infrastructure.cluster.x-k8s.io
   resources:
   - proxmoxclusters
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - infrastructure.cluster.x-k8s.io
-  resources:
-  - proxmoxclusters/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - infrastructure.cluster.x-k8s.io
-  resources:
-  - proxmoxclusters/status
-  verbs:
-  - get
-  - patch
-  - update
-- apiGroups:
-  - infrastructure.cluster.x-k8s.io
-  resources:
   - proxmoxmachines
   verbs:
   - create
@@ -99,12 +60,14 @@ rules:
 - apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
+  - proxmoxclusters/finalizers
   - proxmoxmachines/finalizers
   verbs:
   - update
 - apiGroups:
   - infrastructure.cluster.x-k8s.io
   resources:
+  - proxmoxclusters/status
   - proxmoxmachines/status
   verbs:
   - get
@@ -114,17 +77,6 @@ rules:
   - ipam.cluster.x-k8s.io
   resources:
   - globalinclusterippools
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - ipam.cluster.x-k8s.io
-  resources:
   - inclusterippools
   verbs:
   - create

@@ -5,7 +5,7 @@ SHELL := /bin/bash
 APPLICATION_NAME="cluster-api-provider-proxmox"
 
 UPSTREAM_ORG="ionos-cloud"
-TAG_TO_SYNC="v0.6.1"
+TAG_TO_SYNC="v0.7.5"
 
 OS ?= $(shell go env GOOS 2>/dev/null || echo linux)
 ARCH ?= $(shell go env GOARCH 2>/dev/null || echo amd64)
