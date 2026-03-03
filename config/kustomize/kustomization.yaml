@@ -18,6 +18,7 @@ patchesStrategicMerge:
   - patches/delete-issuer.yaml
   - patches/deployment-resources.yaml
   - patches/deployment-healthz-port.yaml
+  - patches/secret-credentials.yaml
   - patches/cluster-role-binding.yaml
   - patches/role-binding.yaml
 
