@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Added a patch to set default credentials to empty string values in secret.
+
 ## [0.1.1] - 2026-03-03
 
 ### Changed
