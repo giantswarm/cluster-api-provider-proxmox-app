@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.1] - 2026-03-03
 
+### Changed
+
+- Removed `application.giantswarm.io/branch` and `application.giantswarm.io/commit` labels.
+- Added healthz port 8081 to controller.
+- Skip linter check.
+
 ## [0.1.0] - 2026-03-03
 
 ### Changed
