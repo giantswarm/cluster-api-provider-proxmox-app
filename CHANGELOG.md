@@ -11,5 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Migrate to App Build Suite (ABS).
 - Label group `app.giantswarm.io` was changed to `application.giantswarm.io`.
+- Change `kubectl` image to `docker-kubectl`.
 
 [Unreleased]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/tree/main
