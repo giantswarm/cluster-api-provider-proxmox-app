@@ -17,6 +17,7 @@ patchesStrategicMerge:
   - patches/webhook-certificate.yaml
   - patches/delete-issuer.yaml
   - patches/deployment-resources.yaml
+  - patches/deployment-healthz-port.yaml
   - patches/cluster-role-binding.yaml
   - patches/role-binding.yaml
 
