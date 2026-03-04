@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-03-03
+
 ### Changed
 
 - Added a patch to set default credentials to empty string values in secret.
@@ -27,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Label group `app.giantswarm.io` was changed to `application.giantswarm.io`.
 - Change `kubectl` image to `docker-kubectl`.
 
-[Unreleased]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/cluster-api-provider-proxmox-app/releases/tag/v0.1.0
