@@ -1,0 +1,8 @@
+# We have our Issuer already deployed to clusters.
+---
+$patch: delete
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: capmox-selfsigned-issuer
+  namespace: capmox-system

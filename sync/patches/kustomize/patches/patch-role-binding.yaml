@@ -1,0 +1,10 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: capmox-leader-election-rolebinding
+  namespace: capmox-system
+subjects:
+- kind: ServiceAccount
+  name: capmox-controller-manager
+  namespace: '{{ .Release.Namespace }}'

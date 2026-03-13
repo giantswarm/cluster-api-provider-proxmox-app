@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: '{{ .Release.Namespace }}'
+
+resources:
+- tmp/input/infrastructure-components.yaml
+- patches/add-ciliumnetworkpolicy-capmox-controller-manager.yaml
+- patches/add-networkpolicy-capmox-controller-manager.yaml
+
+patches:
+- path: patches/delete-namespace.yaml
+- path: patches/delete-issuer.yaml
+- path: patches/patch-capmox-serving-cert.yaml
+- path: patches/patch-capmox-validating-webhook-configuration.yaml
+- path: patches/patch-deployment-resources.yaml
+- path: patches/patch-deployment-healthz-port.yaml
+- path: patches/patch-secret-credentials.yaml
+- path: patches/patch-cluster-role-binding.yaml
+- path: patches/patch-role-binding.yaml
+- path: patches/patch-crd-cainjection.yaml
+  target:
+    kind: CustomResourceDefinition
+    labelSelector: cluster.x-k8s.io/provider=infrastructure-proxmox
+- path: patches/patch-crd-webhook.yaml
+  target:
+    kind: CustomResourceDefinition
+    labelSelector: cluster.x-k8s.io/provider=infrastructure-proxmox
+
+transformers:
+- patches/add-transformer-custom-labels.yaml
+- patches/add-clusterctl-labels.yaml
