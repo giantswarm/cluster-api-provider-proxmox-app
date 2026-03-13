@@ -29,22 +29,6 @@ serviceMonitor:
   # -- (duration) Prometheus scrape timeout.
   scrapeTimeout: "45s"
 
-# Add seccomp to pod security context
-podSecurityContext:
-  runAsNonRoot: true
-  seccompProfile:
-    type: RuntimeDefault
-
-# Add seccomp to container security context
-containerSecurityContext:
-  allowPrivilegeEscalation: false
-  capabilities:
-    drop:
-      - ALL
-  runAsNonRoot: true
-  seccompProfile:
-    type: RuntimeDefault
-
 global:
   podSecurityStandards:
     enforced: false

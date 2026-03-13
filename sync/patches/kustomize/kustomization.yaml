@@ -14,6 +14,7 @@ patches:
 - path: patches/patch-capmox-validating-webhook-configuration.yaml
 - path: patches/patch-deployment-resources.yaml
 - path: patches/patch-deployment-healthz-port.yaml
+- path: patches/patch-deployment-securitycontext.yaml
 - path: patches/patch-secret-credentials.yaml
 - path: patches/patch-cluster-role-binding.yaml
 - path: patches/patch-role-binding.yaml

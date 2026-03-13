@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capmox-controller-manager
+  namespace: capmox-system
+spec:
+  template:
+    spec:
+      containers:
+      - name: manager
+        securityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
