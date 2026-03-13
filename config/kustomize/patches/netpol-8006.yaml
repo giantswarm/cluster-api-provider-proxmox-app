@@ -1,5 +1,0 @@
-- op: add
-  path: /spec/egress/0/ports/-
-  value:
-    port: 8006
-    protocol: TCP

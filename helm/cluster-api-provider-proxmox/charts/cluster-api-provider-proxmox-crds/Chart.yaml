@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cluster-api-provider-proxmox-crds
+# the CRD subchart version tracks the upstream CRD version,
+# not our chart version. This way we know exactly which upstream
+# CRD version we are using.
+version: 0.7.6

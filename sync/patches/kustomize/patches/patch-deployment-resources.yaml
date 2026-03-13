@@ -17,7 +17,7 @@ spec:
       priorityClassName: "{{ .Values.priorityClass }}"
       containers:
         - name: manager
-          image: "{{.Values.image.name}}:{{.Values.image.tag}}"
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           args:
           - --leader-elect
           - --feature-gates=ClusterTopology={{ .Values.featureGates.ClusterTopology }}
@@ -30,4 +30,3 @@ spec:
             requests:
               cpu: "{{ .Values.resources.requests.cpu }}"
               memory: "{{ .Values.resources.requests.memory }}"
-

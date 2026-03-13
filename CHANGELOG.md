@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rework upstream chart sync to use `vendir`.
+- Update to upstream `v0.7.6`.
+
 ## [0.2.0] - 2026-03-12
 
 ### Changed

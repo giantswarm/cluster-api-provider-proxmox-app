@@ -1,6 +1,6 @@
 image:
   name: gsoci.azurecr.io/giantswarm/cluster-api-provider-proxmox
-  tag: v0.7.6
+  tag: IMAGE_TAG
 
 crdInstall:
   enable: true
