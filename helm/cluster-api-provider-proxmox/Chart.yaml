@@ -2,7 +2,7 @@ apiVersion: v2
 # upstream version
 appVersion: 0.7.6
 # giantswarm app version
-version: 0.2.0
+version: 0.3.0
 name: cluster-api-provider-proxmox
 description: The Proxmox Cluster API provider
 home: https://github.com/giantswarm/cluster-api-provider-proxmox-app
