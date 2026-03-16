@@ -33,10 +33,10 @@ spec:
       containers:
       - args:
         - --leader-elect
-        - --feature-gates=ClusterTopology={{ .Values.featureGates.ClusterTopology
-          }}
-        - --metrics-bind-address=localhost:8080
-        - --v=6
+        - --feature-gates=ClusterTopology=false
+        - --diagnostics-address=:8443
+        - --insecure-diagnostics=false
+        - --v=0
         env:
         - name: PROXMOX_URL
           valueFrom:
