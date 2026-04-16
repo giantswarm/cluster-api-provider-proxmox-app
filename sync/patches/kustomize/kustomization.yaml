@@ -11,6 +11,7 @@ patches:
 - path: patches/delete-namespace.yaml
 - path: patches/delete-issuer.yaml
 - path: patches/patch-capmox-serving-cert.yaml
+- path: patches/patch-capmox-mutating-webhook-configuration.yaml
 - path: patches/patch-capmox-validating-webhook-configuration.yaml
 - path: patches/patch-deployment-resources.yaml
 - path: patches/patch-deployment-healthz-port.yaml

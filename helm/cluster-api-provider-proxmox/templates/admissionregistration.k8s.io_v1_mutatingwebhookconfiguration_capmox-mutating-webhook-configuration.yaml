@@ -1,5 +1,5 @@
 apiVersion: admissionregistration.k8s.io/v1
-kind: ValidatingWebhookConfiguration
+kind: MutatingWebhookConfiguration
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/capmox-serving-cert'
@@ -15,7 +15,7 @@ metadata:
     helm.sh/chart: '{{ .Chart.Name }}'
     io.giantswarm.application.team: '{{ index .Chart.Annotations "io.giantswarm.application.team"
       }}'
-  name: capmox-validating-webhook-configuration
+  name: capmox-mutating-webhook-configuration
 webhooks:
 - admissionReviewVersions:
   - v1
@@ -23,10 +23,10 @@ webhooks:
     service:
       name: capmox-webhook-service
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxcluster
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxcluster
   failurePolicy: Fail
   matchPolicy: Equivalent
-  name: validation.proxmoxcluster.infrastructure.cluster.x-k8s.io
+  name: default.proxmoxcluster.infrastructure.cluster.x-k8s.io
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -44,10 +44,10 @@ webhooks:
     service:
       name: capmox-webhook-service
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxclustertemplate
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxclustertemplate
   failurePolicy: Fail
   matchPolicy: Exact
-  name: validation.proxmoxclustertemplate.infrastructure.cluster.x-k8s.io
+  name: default.proxmoxclustertemplate.infrastructure.cluster.x-k8s.io
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -65,10 +65,10 @@ webhooks:
     service:
       name: capmox-webhook-service
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxmachine
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxmachine
   failurePolicy: Fail
   matchPolicy: Equivalent
-  name: validation.proxmoxmachine.infrastructure.cluster.x-k8s.io
+  name: default.proxmoxmachine.infrastructure.cluster.x-k8s.io
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
@@ -86,10 +86,10 @@ webhooks:
     service:
       name: capmox-webhook-service
       namespace: '{{ .Release.Namespace }}'
-      path: /validate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxmachinetemplate
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1alpha2-proxmoxmachinetemplate
   failurePolicy: Fail
   matchPolicy: Equivalent
-  name: validation.proxmoxmachinetemplate.infrastructure.cluster.x-k8s.io
+  name: default.proxmoxmachinetemplate.infrastructure.cluster.x-k8s.io
   rules:
   - apiGroups:
     - infrastructure.cluster.x-k8s.io
