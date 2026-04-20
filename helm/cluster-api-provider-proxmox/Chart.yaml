@@ -1,6 +1,6 @@
 apiVersion: v2
 # upstream version
-appVersion: 0.7.6
+appVersion: 0.8.1
 # giantswarm app version
 version: 0.3.0
 name: cluster-api-provider-proxmox
