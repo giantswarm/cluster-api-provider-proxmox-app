@@ -2,8 +2,8 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - githubRelease:
-      tag: v0.8.1
-      url: https://api.github.com/repos/ionos-cloud/cluster-api-provider-proxmox/releases/309900433
+      tag: v0.9.0
+      url: https://api.github.com/repos/ionos-cloud/cluster-api-provider-proxmox/releases/346602754
     path: cluster-api-provider-proxmox
   path: vendor
 kind: LockConfig

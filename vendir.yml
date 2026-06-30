@@ -6,6 +6,6 @@ directories:
       - path: cluster-api-provider-proxmox
         githubRelease:
           slug: ionos-cloud/cluster-api-provider-proxmox
-          tag: v0.8.1
+          tag: v0.9.0
           assetNames: ["infrastructure-components.yaml"]
           disableAutoChecksumValidation: true
