@@ -3,7 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/capmox-serving-cert'
-    controller-gen.kubebuilder.io/version: v0.18.0
+    controller-gen.kubebuilder.io/version: v0.19.0
     helm.sh/resource-policy: keep
   labels:
     app.kubernetes.io/instance: '{{ .Release.Name }}'
@@ -920,11 +920,25 @@ spec:
                                     minLength: 4
                                     pattern: ^net[0-9]+$
                                     type: string
+                                  queues:
+                                    description: |-
+                                      queues is the number of queues assigned to the device.
+                                      This value is passed to the Multiqueue field in PROXMOX.
+                                    format: int32
+                                    maximum: 65535
+                                    minimum: 1
+                                    type: integer
                                   routes:
                                     description: routes are the routes associated with this interface.
                                     items:
                                       description: RouteSpec describes an IPv4/IPv6 Route.
                                       properties:
+                                        is6:
+                                          description: |-
+                                            is6 defines if a RouteSpec is IPv6.
+                                            It is only required to disambiguate a 'default'|'all' placeholder 'to'
+                                            when 'via' is unset, otherwise the family is derived from 'via'.
+                                          type: boolean
                                         metric:
                                           description: metric is the priority of the route in the routing table.
                                           format: int32
@@ -952,6 +966,12 @@ spec:
                                         from:
                                           description: from is the subnet of the source.
                                           type: string
+                                        is6:
+                                          description: |-
+                                            is6 defines if a RoutingPolicySpec is IPv6.
+                                            It is only required to disambiguate a 'default'|'all' placeholder when
+                                            neither 'to' nor 'from' carries a concrete address to derive the family.
+                                          type: boolean
                                         priority:
                                           description: priority is the position in the ip rule FIB table.
                                           format: int64
@@ -1007,6 +1027,12 @@ spec:
                                     items:
                                       description: RouteSpec describes an IPv4/IPv6 Route.
                                       properties:
+                                        is6:
+                                          description: |-
+                                            is6 defines if a RouteSpec is IPv6.
+                                            It is only required to disambiguate a 'default'|'all' placeholder 'to'
+                                            when 'via' is unset, otherwise the family is derived from 'via'.
+                                          type: boolean
                                         metric:
                                           description: metric is the priority of the route in the routing table.
                                           format: int32
@@ -1034,6 +1060,12 @@ spec:
                                         from:
                                           description: from is the subnet of the source.
                                           type: string
+                                        is6:
+                                          description: |-
+                                            is6 defines if a RoutingPolicySpec is IPv6.
+                                            It is only required to disambiguate a 'default'|'all' placeholder when
+                                            neither 'to' nor 'from' carries a concrete address to derive the family.
+                                          type: boolean
                                         priority:
                                           description: priority is the position in the ip rule FIB table.
                                           format: int64
