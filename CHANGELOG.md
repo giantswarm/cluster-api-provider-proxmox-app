@@ -7,12 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update upstream whereabouts chart to null.
+
 ### Added
 
 - Run the sync script automatically on Renovate vendir branches and push the result for review.
 - Add a check which fails a pull request if the sync script was not run.
-
-### Changed
 
 - Update to upstream `v0.9.0`.
 
