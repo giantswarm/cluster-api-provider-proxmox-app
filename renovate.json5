@@ -5,7 +5,14 @@
     "github>giantswarm/renovate-presets:disable-helmv3.json5",
     "github>giantswarm/renovate-presets:disable-helm-values.json5",
   ],
+  "packageRules": [
+    {
+      // The sync workflow pushes the patched chart to the branch; that commit needs review.
+      "matchFileNames": ["vendir.yml"],
+      "automerge": false,
+    },
+  ],
   "prBodyNotes": [
-    "DO NOT merge this PR directly; you must follow the instructions in the [README](https://github.com/giantswarm/cluster-api-provider-proxmox-app?tab=readme-ov-file#updating).",
+    "A workflow runs the sync script at `sync/sync.sh` and pushes the result to this branch. Review that commit before you merge.",
   ],
 }
