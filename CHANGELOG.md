@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update architect to v10.9.0 (giantswarm/cluster-api-provider-proxmox-app#68)
+
 ## [0.5.0] - 2026-09-11
 
 ### Changed
