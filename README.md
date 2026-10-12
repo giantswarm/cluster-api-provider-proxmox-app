@@ -14,19 +14,9 @@ Content of the `/helm` directory will be bundled, released and pushed to the `ap
 
 How to work within this repository?
 
-### apply new `kustomize` changes to the charts
+This repository uses Vendir to sync upstream updates. To update the repo, set the upstream chart version in `vendir.yml`, then run `sync/sync.sh`.
 
-1. if not already done, run `make fetch-upstream-manifest` (only has to be done once)
-   > upstream manifest will be stored in [`config/kustomize/origin`](config/kustomize/origin)
-1. write your desired changes as kustomize patches in [config/kustomize]
-1. run `make apply-kustomize-patches` to apply the changes\n
-   > this will generate a patched version under [`config/kustomize/tmp`](config/kustomize/tmp)
-1. once you're done, run `make release-manifests` to move all relevant files into the [`helm/cluster-api-provider-proxmox`](helm/cluster-api-provider-proxmox) folder
-
-### update to a newer CAPMOX release
-
-1. edit the value of `COMMIT_TO_SYNC` in [the Makefile](Makefile.custom.mk) to the desired commit to pin in the source repo.
-2. run `make all`
+This is run automatically whenever Renovate opens a PR which bumps the version in `vendir.yml`
 
 # Useful links
 
