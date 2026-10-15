@@ -18,12 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.13.1 (giantswarm/cluster-api-provider-proxmox-app#78)
 - Update architect to v10.13.5 (giantswarm/cluster-api-provider-proxmox-app#83)
 
+### Fixed
+
+- Fix changelog generation script.
+
 ## [0.5.0] - 2026-09-11
 
 ### Changed
 
-- Update upstream whereabouts chart to v0.9.1.
-
+- Update upstream cluster-api-provider-proxmox chart to v0.9.1.
 - Update to upstream `v0.9.0`.
 
 ### Added
