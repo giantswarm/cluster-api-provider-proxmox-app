@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update architect to v10.13.1 (giantswarm/cluster-api-provider-proxmox-app#78)
 - Update architect to v10.13.5 (giantswarm/cluster-api-provider-proxmox-app#83)
 - Update architect to v10.14.7 (giantswarm/cluster-api-provider-proxmox-app#87)
+- Update architect to v10.14.18 (giantswarm/cluster-api-provider-proxmox-app#98)
 
 ### Fixed
 
